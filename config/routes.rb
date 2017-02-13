@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
-  resources :savings
-  resources :goals
-  resources :transactions
-  resources :expenses
-  resources :incomes
-  resources :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  namespace :api do
+    namespace :v1 do
+      resources :savings
+      resources :goals
+      resources :transactions
+      resources :expenses
+      resources :incomes
+      resources :users
+      post '/signup', to: "users#create"
+    end
+  end
 end

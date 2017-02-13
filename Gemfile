@@ -6,10 +6,13 @@ git_source(:github) do |repo_name|
 end
 
 
-
+gem 'active_model_serializers'
+gem 'rest-client'
+gem 'dotenv-rails'
 gem 'pry'
 gem 'rack-cors'
 gem 'bcrypt'
+gem 'jwt'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 # Use postgresql as the database for Active Record

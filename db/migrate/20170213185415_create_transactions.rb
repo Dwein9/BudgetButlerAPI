@@ -5,7 +5,7 @@ class CreateTransactions < ActiveRecord::Migration[5.0]
       t.string :name
       t.float :value
       t.integer :expense_id
-      t.datetime :date
+      t.string :date
 
       t.timestamps
     end

@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20170213191035) do
     t.integer  "user_id"
     t.string   "name"
     t.float    "value"
-    t.datetime "date"
+    t.string "day"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

@@ -2,7 +2,12 @@ module Api
   module V1
 
 class TransactionsController < ApplicationController
-end
+
+  def index
+    render json: User.first.transactions.to_json
+  end
 
 end
+
+  end
 end

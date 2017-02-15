@@ -4,7 +4,7 @@ module Api
 class TransactionsController < ApplicationController
 
   def index
-    if current_user
+    if authenticate_user
       render json: User.first.transactions.order(day: :desc).to_json
     else
       render json: {message: "You are not logged in", status_code: 421}

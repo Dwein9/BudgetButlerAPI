@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :incomes
       resources :users
       post '/signup', to: "users#create"
+      post '/signin', to: "sessions#create"
     end
   end
 end

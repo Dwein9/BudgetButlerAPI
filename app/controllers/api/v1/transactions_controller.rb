@@ -3,8 +3,10 @@ module Api
 
 class TransactionsController < ApplicationController
 
+# render json: {message: "Incorrect Email or Password", status_code: 422}
+
   def index
-    render json: User.first.transactions.order(day: :desc).to_json
+      render json: User.first.transactions.order(day: :desc).to_json
   end
 
   def create

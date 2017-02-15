@@ -5,6 +5,8 @@ class Api::V1::SessionsController < ApplicationController
     if @user && @user.authenticate(params[:password])
       jwt = Auth.issue({user_id: @user.id})
       render json: {jwt: jwt}
+    else
+      render json: {message: "Incorrect Email or Password", status_code: 422}
     end
   end
 

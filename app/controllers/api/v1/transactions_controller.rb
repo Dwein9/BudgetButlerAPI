@@ -7,7 +7,7 @@ class TransactionsController < ApplicationController
     if current_user
       render json: User.first.transactions.order(day: :desc).to_json
     else
-      return json: {message: "You are not logged in", status_code: 421}
+      render json: {message: "You are not logged in", status_code: 421}
     end
   end
 

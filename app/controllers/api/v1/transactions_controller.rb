@@ -29,6 +29,14 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def destroy
+    if logged_in?
+      transaction = Transaction.find(transaction_params[:id])
+      transaction.destroy
+      render json: @current_user.transactions.order(day: :desc).to_json
+    end
+  end
+
   private
 
   def transaction_params

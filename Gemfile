@@ -5,8 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
-gem 'active_model_serializers'
+# 
+# gem 'active_model_serializers'
 gem 'rest-client'
 gem 'dotenv-rails'
 gem 'pry'

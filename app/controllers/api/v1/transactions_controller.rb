@@ -10,11 +10,11 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    # value = transaction_params[:value].to_i
-    # transaction = Tranction.new(name: transaction_params[:name], day: transaction_params[:day], value: value, expense_id: 1)
-    # transaction.user = current_user
-    # transaction.save
-    # render json: User.first.transactions.order(day: :desc).to_json
+    value = transaction_params[:value].to_i
+    transaction = Transaction.new(name: transaction_params[:name], day: transaction_params[:day], value: value, expense_id: 1)
+    transaction.user = current_user
+    transaction.save
+    render json: User.first.transactions.order(day: :desc).to_json
   end
 
   private

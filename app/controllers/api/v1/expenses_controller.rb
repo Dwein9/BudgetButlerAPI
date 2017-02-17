@@ -33,6 +33,11 @@ class ExpensesController < ApplicationController
     if logged_in?
       expense = Expense.find(params[:id])
       expense.destroy
+      default_to_misc = Transaction.all.where(expense_id: params[:id])
+
+        default_to_misc.map do |transaction|
+          transaction.update(expense_id: 1)
+        end
       render json: @current_user.expenses.order(budget: :desc).to_json
     end
   end

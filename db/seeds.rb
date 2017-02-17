@@ -9,6 +9,8 @@ Goal.create(name: "Vacation", budget: 1000, user_id: 1)
 Income.create(name: "Flatiron Engineer", amount: 5000, user_id: 1)
 Saving.create(name: "Corporate Bank", budget: 3000, user_id: 1)
 #Expense_Transaction.create(transaction_id: Transaction.first, expense_id: Expense.first)
+
+
 User.create(name: "Jon", email: "jon@jon.jon", password: "password", password_confirmation: "password")
 Expense.create(category: "Coffee", budget: 50, user_id: 2)
 Expense.create(category: "Food", budget: 50, user_id: 2)

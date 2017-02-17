@@ -11,7 +11,7 @@ class ExpensesController < ApplicationController
 
   def create
     if logged_in?
-      value = expense_params[:value].to_f
+      value = expense_params[:budget].to_f
       expense = Expense.new(category: expense_params[:category], budget: expense_params[:budget])
       expense.user = current_user
       expense.save
@@ -31,7 +31,7 @@ class ExpensesController < ApplicationController
 
   def destroy
     if logged_in?
-      expense = Expense.find(expense_params[:id])
+      expense = Expense.find(params[:id])
       expense.destroy
       render json: @current_user.expenses.order(budget: :desc).to_json
     end

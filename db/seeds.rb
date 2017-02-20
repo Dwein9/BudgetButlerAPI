@@ -7,13 +7,10 @@ Transaction.create(expense_id: 1, user_id: 1, name: "Starbucks", value: 4.50, da
 Transaction.create(expense_id: 1, user_id: 1, name: "Dunkin Donuts", value: 3.25, day: "2017-01-13")
 Transaction.create(expense_id: 2, user_id: 1, name: "Essen", value: 8.75, day: "2017-01-19")
 Transaction.create(expense_id: 2, user_id: 1, name: "Dig Inn", value: 12.25, day: "2017-02-10")
-<<<<<<< HEAD
 Transaction.create(expense_id: 3, user_id: 1, name: "Starbucks", value: 4.50, day: "2017-01-01")
 Transaction.create(expense_id: 3, user_id: 1, name: "Dunkin Donuts", value: 3.25, day: "2017-01-13")
 Transaction.create(expense_id: 4, user_id: 1, name: "Essen", value: 8.75, day: "2017-01-19")
 Transaction.create(expense_id: 4, user_id: 1, name: "Dig Inn", value: 12.25, day: "2017-02-10")
-=======
->>>>>>> 77384fbcc76bd5f6fd7dd6f7d35ee3dcebf67035
 Goal.create(name: "Vacation", budget: 1000, user_id: 1)
 Income.create(name: "Flatiron Engineer", amount: 5000, user_id: 1)
 Saving.create(name: "Corporate Bank", budget: 3000, user_id: 1)

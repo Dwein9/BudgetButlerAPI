@@ -37,10 +37,19 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def month
+    if logged_in?
+      selected_month = (params[:month_id].to_i + 1)
+      transaction = Transaction.where(user_id: @current_user)
+      transactions = transaction.where('day >= ? AND day <= ?', DateTime.new(2017,selected_month,1).beginning_of_month, DateTime.new(2017,selected_month,1).end_of_month)
+      render json: transactions.order(day: :desc).to_json
+    end
+  end
+
   private
 
   def transaction_params
-    params.require(:transaction).permit(:name, :value, :day, :id,  :expense_id)
+    params.require(:transaction).permit(:name, :value, :day, :id, :expense_id)
   end
 
 end

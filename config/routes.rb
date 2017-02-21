@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :users
       post '/signup', to: "users#create"
       post '/signin', to: "sessions#create"
+      post '/month/:id', to: "transactions#month"
     end
   end
 end

@@ -15,13 +15,6 @@ ActiveRecord::Schema.define(version: 20170213191035) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "expense_transactions", force: :cascade do |t|
-    t.integer  "expense_id"
-    t.integer  "transaction_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
   create_table "expenses", force: :cascade do |t|
     t.string   "category"
     t.float    "budget"

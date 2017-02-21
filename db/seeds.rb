@@ -14,7 +14,7 @@ Transaction.create(expense_id: 4, user_id: 1, name: "Dig Inn", value: 12.25, day
 Goal.create(name: "Vacation", budget: 1000, user_id: 1)
 Income.create(name: "Flatiron Engineer", amount: 5000, user_id: 1)
 Saving.create(name: "Corporate Bank", budget: 3000, user_id: 1)
-#Expense_Transaction.create(transaction_id: Transaction.first, expense_id: Expense.first)
+
 
 
 User.create(name: "Jon", email: "jon@jon.jon", password: "password", password_confirmation: "password")

@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20170213191035) do
     t.string   "category"
     t.float    "budget"
     t.integer  "user_id"
+    t.boolean "misc", :default => false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

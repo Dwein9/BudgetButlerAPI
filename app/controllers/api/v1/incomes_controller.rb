@@ -4,7 +4,9 @@ module Api
 class IncomesController < ApplicationController
 
   def index
-    render json: User.first.incomes.to_json
+    if logged_in?
+      render json: @current_user.incomes.order(amount: :desc).to_json
+    end
   end
 
    def create

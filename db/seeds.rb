@@ -1,5 +1,4 @@
 User.create(name: "Franco", email: "franco@franco.franco", password: "password", password_confirmation: "password")
-Expense.create(category: "Misc", budget: 0, user_id: 1)
 Expense.create(category: "Coffee", budget: 50, user_id: 1)
 Expense.create(category: "Food", budget: 50, user_id: 1)
 Expense.create(category: "Bills", budget: 50, user_id: 1)

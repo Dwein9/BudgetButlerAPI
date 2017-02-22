@@ -32,20 +32,24 @@ class ExpensesController < ApplicationController
   def destroy
     if logged_in?
       expense = Expense.find(params[:id])
-      default_to_misc = Transaction.all.where(expense_id: params[:id])
-
-        default_to_misc.map do |transaction|
-          transaction.update(expense_id: 1)
+        if expense.misc == false
+              default_to_misc = Transaction.all.where(expense_id: params[:id])
+              misc = @current_user.expenses.where(misc: true)
+              default_to_misc.map do |transaction|
+                transaction.update(expense_id: misc[0].id)
+              end
+            expense.destroy
+          render json: @current_user.expenses.order(budget: :desc).to_json
+        else
+          render json: @current_user.expenses.order(budget: :desc).to_json
         end
-        expense.destroy
-      render json: @current_user.expenses.order(budget: :desc).to_json
     end
   end
 
   private
 
   def expense_params
-    params.require(:expense).permit(:category, :budget, :id)
+    params.require(:expense).permit(:category, :budget, :id, :misc)
   end
 end
 

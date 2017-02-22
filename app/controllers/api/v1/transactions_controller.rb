@@ -32,7 +32,7 @@ class TransactionsController < ApplicationController
       transaction = Transaction.find(transaction_params[:id])
       transaction.update(name: transaction_params[:name], day: transaction_params[:day], value: value, expense_id: transaction_params[:expense_id])
       transaction.save
-      
+
 
       selected_month = (params[:transaction][:month].to_i + 1)
       user_transaction = Transaction.where(user_id: @current_user)
@@ -67,7 +67,7 @@ class TransactionsController < ApplicationController
   private
 
   def transaction_params
-    params.require(:transaction).permit(:name, :value, :day, :id, :expense_id)
+    params.require(:transaction).permit(:name, :value, :day, :id, :expense_id, :month)
   end
 
 end

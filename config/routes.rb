@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       post '/signup', to: "users#create"
       post '/signin', to: "sessions#create"
       post '/month/:id', to: "transactions#month"
+      post '/transactions/delete/:id', to: "transactions#delete"
     end
   end
 end

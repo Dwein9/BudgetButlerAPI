@@ -33,7 +33,7 @@ class ExpensesController < ApplicationController
     if logged_in?
       expense = Expense.find(params[:id])
         if expense.misc == false
-              default_to_misc = Transaction.all.where(expense_id: params[:id])
+              default_to_misc = @current_user.transactions.where(expense_id: params[:id])
               misc = @current_user.expenses.where(misc: true)
               default_to_misc.map do |transaction|
                 transaction.update(expense_id: misc[0].id)

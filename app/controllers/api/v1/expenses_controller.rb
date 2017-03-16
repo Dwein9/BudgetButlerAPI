@@ -34,15 +34,21 @@ class ExpensesController < ApplicationController
     if logged_in?
       expense = Expense.find(params[:id])
         if expense.misc == false
-              default_to_misc = @current_user.transactions.where(expense_id: params[:id])
-              misc = @current_user.expenses.where(misc: true)
-              default_to_misc.map do |transaction|
-                transaction.update(expense_id: misc[0].id)
-              end
-            expense.destroy
-          render json: @current_user.expenses.order(budget: :desc).to_json
+          default_to_misc = @current_user.transactions.where(expense_id: params[:id])
+          misc = @current_user.expenses.where(misc: true)
+          default_to_misc.map do |transaction|
+            transaction.update(expense_id: misc[0].id)
+          end
+          expense.destroy
+
+          user_expense = Expense.where(user_id: @current_user)
+          expense_month = user_expense.where('month = ?', expense.month)
+          render json: expense_month.to_json
         else
-          render json: @current_user.expenses.order(budget: :desc).to_json
+
+          user_expense = Expense.where(user_id: @current_user)
+          expense_month = user_expense.where('month = ?', expense.month)
+          render json: expense_month.to_json
         end
     end
   end

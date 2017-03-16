@@ -1,8 +1,8 @@
 User.create(name: "Ian", email: "ian@ian.ian", password: "password", password_confirmation: "password")
-Expense.create(category: "Misc", budget: 50, user_id: 1, misc: true)
-Expense.create(category: "Coffee", budget: 50, user_id: 1)
-Expense.create(category: "Food", budget: 50, user_id: 1)
-Expense.create(category: "Bills", budget: 50, user_id: 1)
+Expense.create(category: "Misc", budget: 50, user_id: 1, misc: true, month: "2017-01-01")
+Expense.create(category: "Coffee", budget: 50, user_id: 1, month: "2017-01-03")
+Expense.create(category: "Food", budget: 50, user_id: 1, month: "2017-02-04")
+Expense.create(category: "Bills", budget: 50, user_id: 1, month: "2017-02-01")
 
 Transaction.create(expense_id: 2, user_id: 1, name: "Starbucks", value: 4.50, day: "2017-01-01")
 Transaction.create(expense_id: 2, user_id: 1, name: "Dunkin Donuts", value: 3.25, day: "2017-01-13")

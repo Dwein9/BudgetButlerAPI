@@ -11,17 +11,19 @@ class ExpensesController < ApplicationController
 
   def create
     if logged_in?
-      value = expense_params[:budget].to_f
-      expense = Expense.new(category: expense_params[:category], budget: expense_params[:budget])
+      expense = Expense.new(category: expense_params[:category], budget: expense_params[:budget], month:convert_month(expense_params[:month]))
       expense.user = current_user
       expense.save
-      render json: @current_user.expenses.order(budget: :desc).to_json
+
+      selected_month = expense.month
+      user_expense = Expense.where(user_id: @current_user)
+      expense_month = user_expense.where('month = ?', selected_month)
+      render json: expense_month.to_json
     end
   end
 
   def update
     if logged_in?
-      value = expense_params[:value].to_f
       expense = Expense.find(expense_params[:id])
       expense.update(category: expense_params[:category], budget: expense_params[:budget])
       expense.save
@@ -49,8 +51,14 @@ class ExpensesController < ApplicationController
   private
 
   def expense_params
-    params.require(:expense).permit(:category, :budget, :id, :misc)
+    params.require(:expense).permit(:category, :budget, :id, :misc, :month)
   end
+
+  def convert_month(string_number)
+    months = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"]
+    return months[string_number.to_i]
+  end  
+
 end
 
 end

@@ -15,9 +15,8 @@ class ExpensesController < ApplicationController
       expense.user = current_user
       expense.save
 
-      selected_month = expense.month
       user_expense = Expense.where(user_id: @current_user)
-      expense_month = user_expense.where('month = ?', selected_month)
+      expense_month = user_expense.where('month = ?', expense.month)
       render json: expense_month.to_json
     end
   end

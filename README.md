@@ -1,24 +1,14 @@
-# README
+# Budget Butler
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome. This is the API for Budget Butler, a React/Redux web application that allows users to track their spending. The front-end code can be viewed here, https://github.com/Dwein9/BudgetButler.
 
-Things you may want to cover:
+## Built with
+* Ruby
 
-* Ruby version
+## Getting Started
+After following the directions from the front-end repository, clone this project and run `bundle install`, `rake db:create`, `rake db:migrate`,  and `rake db:seed` to install the necessary gems, create and migrate database, and fill with seed data. Then run `rails s` to start the database. Or view here, https://budgetbutler.co
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Created by
+* **Franco Cappitta** - https://github.com/Franco84
+* **David Weinstein** - https://github.com/dwein9
+* **Jonathan Zylberberg** - https://github.com/ZylberbergJ23
